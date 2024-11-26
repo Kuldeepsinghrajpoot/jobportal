@@ -1,6 +1,10 @@
+import mailer from "../mailer.js";
 import { Job } from "../models/job.model.js";
-
+import { User } from "../models/user.model.js";
 // admin post krega job
+import ejs from "ejs";
+import path from "path";
+
 export const postJob = async (req, res) => {
     try {
         const { title, description, requirements, salary, location, jobType, experience, position, companyId } = req.body;
@@ -8,10 +12,11 @@ export const postJob = async (req, res) => {
 
         if (!title || !description || !requirements || !salary || !location || !jobType || !experience || !position || !companyId) {
             return res.status(400).json({
-                message: "Somethin is missing.",
+                message: "Something is missing.",
                 success: false
-            })
-        };
+            });
+        }
+
         const job = await Job.create({
             title,
             description,
@@ -24,15 +29,48 @@ export const postJob = async (req, res) => {
             company: companyId,
             created_by: userId
         });
+
+        if (job) {
+            // Fetch user emails
+            const userEmail = await User.aggregate([
+                {
+                    $project: {
+                        email: 1
+                    }
+                }
+            ]);
+
+            // Generate HTML content using EJS
+            const templatePath =  path.resolve("./job-mail.ejs");
+            const htmlContent = await ejs.renderFile(templatePath, {
+                jobTitle: title,
+                jobLocation: location,
+                jobType,
+                jobSalary: salary,
+                jobLink: `${process.env.CLIENT_URL}/browse`,
+            });
+
+            // console.log(htmlContent); // Check generated HTML content
+
+            const recipients = userEmail.map(user => user.email);
+
+            // Uncomment and replace `mailer` with your mail sending function
+            await mailer(htmlContent, recipients);
+        }
+
         return res.status(201).json({
             message: "New job created successfully.",
             job,
             success: true
         });
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        return res.status(500).json({
+            message: "An error occurred while creating the job.",
+            success: false
+        });
     }
-}
+};
 // student k liye
 export const getAllJobs = async (req, res) => {
     try {

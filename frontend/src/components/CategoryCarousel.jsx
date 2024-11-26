@@ -42,7 +42,7 @@ const CategoryGrid = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 3000,
     centerMode: true,
@@ -77,13 +77,8 @@ const CategoryGrid = () => {
         <Slider {...sliderSettings}>
           {categories.map((category, index) => (
             <div key={index} className="p-4">
-              <div className="relative flex flex-col items-center text-center border rounded p-6 group hover:shadow-xl transition-all duration-300 cursor-pointer">
-                {/* Category Image */}
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  className="w-full h-32 object-cover rounded-t-md mb-4"
-                />
+              <div className="relative bg-card flex flex-col items-center text-center border rounded p-6 group hover:shadow-xl transition-all duration-300 cursor-pointer">
+                
 
                 {/* Content */}
                 <h3 className="text-xl font-semibold text-primary z-10">

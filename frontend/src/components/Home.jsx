@@ -18,12 +18,12 @@ const Home = () => {
     }
   }, []);
   return (
-    <div className='bg-muted/40'>
+    <div className='bg-muted/40 '>
       <Navbar />
       <HeroSection />
       <CategoryCarousel />
       <LatestJobs />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

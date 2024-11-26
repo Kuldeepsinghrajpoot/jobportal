@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Job Opportunity</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #333333;
+    }
+
+    .email-container {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      border: 1px solid #e3e3e3;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #5e6ad2, #4f4eff);
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 22px;
+      color: #4f4eff;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 16px;
+      color: #555555;
+      line-height: 1.6;
+      margin: 15px 0;
+    }
+
+    .job-details {
+      background-color: #f8f9fa;
+      border: 1px solid #dedede;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px auto;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .job-details p {
+      margin: 8px 0;
+      font-size: 16px;
+      color: #444444;
+    }
+
+    .job-details p strong {
+      color: #333333;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
+      color: #ffffff;
+      background: linear-gradient(90deg, #4f4eff, #6a11cb);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      background-color: #f1f1f1;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888888;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="email-container">
+    <div class="header">
+      <h1>New Job Opportunity!</h1>
+    </div>
+    <div class="content">
+      <h2>Take Your Career to the Next Level</h2>
+      <p>We are excited to share a job opening that matches your skills and aspirations. Check out the details below and
+        don't miss this chance!</p>
+      <div class="job-details">
+        <p><strong>Job Title:</strong> <%= jobTitle %></p>
+        <p><strong>Location:</strong> <%= jobLocation %></p>
+        <p><strong>Type:</strong> <%= jobType %></p>
+        <p><strong>Salary:</strong> <%= jobSalary %> LPA</p>
+      </div>
+      <a href="<%= jobLink %>" class="button">View Job Details</a>
+    </div>
+    <div class="footer">
+      <p>If you have any questions, feel free to contact us at <a href="mailto:udaydivyaclinic@gmail.com">udaydivyaclinic@gmail.com</a>.</p>
+      <p>You are receiving this email because you subscribed to our job alerts.</p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -27,7 +27,7 @@ const ApplicantsTable = () => {
     }
 
     return (
-        <div>
+        <div className='h-screen py-4'>
             <Table>
                 <TableCaption>A list of your recent applied user</TableCaption>
                 <TableHeader>

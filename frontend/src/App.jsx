@@ -16,6 +16,7 @@ import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
 import NextTopLoader from 'nextjs-toploader';
 import { postsLoader } from './hooks/profile'
+import Footer from './components/shared/Footer'
 
 
 const appRouter = createBrowserRouter([
@@ -78,10 +79,11 @@ const appRouter = createBrowserRouter([
 function App() {
 
   return (
-    <div>
+    <div className=''>
       <NextTopLoader />
      
       <RouterProvider router={appRouter} />
+      <Footer/>
     </div>
   )
 }

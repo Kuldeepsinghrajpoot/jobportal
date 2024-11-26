@@ -4,6 +4,8 @@ import { Search } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import { useNavigate } from 'react-router-dom';
+import { Input } from './ui/input';
+import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
   const [query, setQuery] = useState('');
@@ -37,10 +39,10 @@ const HeroSection = () => {
         </h1>
         <p className="text-gray-300 max-w-lg text-sm lg:text-lg"> Discover thousands of job opportunities, apply effortlessly, and take a step toward your successful career. </p>
         {/* Search Bar */}
-        <div className="flex w-full lg:w-[50%] h-16 shadow-lg rounded-lg overflow-hidden bg-white animate-slideIn">
-          <input type="text" placeholder="Search for jobs, titles, or keywords..." value={query} onChange={(e) => setQuery(e.target.value)} className="flex-grow px-4 text-gray-800 focus:outline-none text-sm" />
-          <Button onClick={searchJobHandler} className="flex items-center justify-center h-full px-6 bg-primary text-white hover:bg-primary-dark transition" >
-            <Search className="h-5 w-5" />
+        <div className="flex  justify-between rounded-xl space-x-5 w-3/6">
+          <Input type="text" className={cn(" h-16 rounded-xl font-semibold text-2xl  focus-visible:ring-2 ")} placeholder="Search  for jobs, titles, or keywords..." value={query} onChange={(e) => setQuery(e.target.value)} />
+          <Button onClick={searchJobHandler} className={cn(" h-18 w-28")} >
+            <h1 className=' text-xl'>Search</h1>
           </Button> </div>
       </div>
     </div>
