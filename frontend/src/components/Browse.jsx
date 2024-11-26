@@ -7,14 +7,10 @@ import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { Input } from './ui/input';
 
 const Browse = () => {
-    // Redux state and dispatcher
     const { allJobs, searchedQuery } = useSelector((store) => store.job);
     const dispatch = useDispatch();
-
-    // Local state for filtered jobs
     const [filteredJobs, setFilteredJobs] = useState([]);
 
-    // Effect to filter jobs based on the search query
     useEffect(() => {
         if (searchedQuery) {
             setFilteredJobs(
@@ -27,7 +23,6 @@ const Browse = () => {
         }
     }, [searchedQuery, allJobs]);
 
-    // Handle case when `allJobs` is still loading
     if (!allJobs || allJobs.length === 0) {
         return (
             <div className="bg-muted/40 min-h-screen flex items-center justify-center">
@@ -51,7 +46,9 @@ const Browse = () => {
                             value={searchedQuery}
                             onChange={(e) => dispatch(setSearchedQuery(e.target.value))}
                             placeholder="Search jobs..."
-                            className="w-full h-14 px-6 py-4 text-2xl font-semibold rounded border"
+                            className="w-full h-14 px-6 py-4 text-2xl font-semibold rounded-lg
+                             shadow-md  focus:shadow-primary/50
+                            transition-shadow duration-300 ease-in-out  border"
                         />
                     </div>
                 </div>
@@ -61,7 +58,12 @@ const Browse = () => {
                     </h1>
                     <div className='grid grid-cols-3 gap-4 pb-4'>
                         {filteredJobs.map((job) => (
-                            <Job key={job._id} job={job} />
+                            <div
+                                key={job._id}
+                                
+                            >
+                                <Job job={job} />
+                            </div>
                         ))}
                     </div>
                 </div>

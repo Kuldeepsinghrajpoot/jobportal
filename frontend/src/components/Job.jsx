@@ -17,7 +17,7 @@ const Job = ({ job }) => {
     };
 
     return (
-        <div className="p-6 rounded-lg bg-card border">
+        <div className="p-6 rounded bg-card shadow-md">
             {/* Job Header */}
             <div className="flex items-center justify-between mb-4">
                 <p className="text-xs font-semibold text-muted-foreground">

@@ -10,7 +10,7 @@ const LatestJobCards = ({ job }) => {
     return (
         <div
             onClick={() => navigate(`/description/${job._id}`)}
-            className="p-6 rounded-lg   bg-card border cursor-pointer hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+            className="p-6 rounded  shadow-md  bg-card border cursor-pointer hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
             aria-label={`View details for ${job?.title} at ${job?.company?.name}`}
         >
             {/* Header Section */}
